@@ -1,12 +1,14 @@
 import { useState } from 'react'
+import { initialGeneralInformation } from './data.js';
+import {InformationSection} from './components/InformationSection.jsx';
 import './App.css'
 
-function App() {
-
+export default function App() {
+  const [generalInformation, setGeneralInformation] = useState(initialGeneralInformation);
+  
   return (
     <>
+      <InformationSection generalInformation={generalInformation} />
     </>
   )
 }
-
-export default App
