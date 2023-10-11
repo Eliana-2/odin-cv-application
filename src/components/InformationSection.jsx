@@ -1,12 +1,24 @@
-import {Input} from './Input.jsx';
+import Input from './Input.jsx';
+import Button from './Button.jsx';
+import {useState} from 'react'
 
-function InformationSection({generalInformation}) {
+function InformationSection({generalInformation, updateGeneralInformation, inputTypes}) {
+  const [inputValues, setInputValues] = useState({...generalInformation});
+  
+  function updateInputValues(event, valueKey) {
+    setInputValues({...inputValues, [valueKey] : event.target.value});
+  }
+
+  function formatLabel(string) {
+    const separatedString = string.replace(/([A-Z])/g, ' $1').trim();
+    return separatedString[0].toUpperCase() + separatedString.slice(1);
+  }
   return (
     <form>
-      <Input labelName="Name" inputId="name" inputName="name" inputValue={generalInformation.name}/>
-      <Input labelName="Email" inputId="email" inputName="email" inputType="email" inputValue={generalInformation.email}/>
-      <Input labelName="Phone Number" inputId="phone-number" inputName="phone_number" inputType="tel" inputValue={generalInformation.phoneNumber}/>
-      <Input labelName="Location" inputId="location" inputName="location" inputValue={generalInformation.location}/>
+      {Object.keys(inputValues).map((inputKey) => 
+      <Input labelName={formatLabel(inputKey)} inputId={inputKey} inputName={inputKey} inputType={inputTypes[inputKey]} inputValue={inputValues[inputKey]} onChange={(e) => updateInputValues(e, inputKey)} key={inputKey}/>
+      )}
+      <Button/>
     </form>
   )
 }

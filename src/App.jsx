@@ -8,7 +8,7 @@ export default function App() {
   
   return (
     <>
-      <InformationSection generalInformation={generalInformation} />
+      <InformationSection generalInformation={generalInformation} inputTypes={{name: 'text', email: 'email', phoneNumber: 'tel', location: 'text'}}/>
     </>
   )
 }

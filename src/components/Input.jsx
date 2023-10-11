@@ -1,4 +1,6 @@
-function Input({labelName, inputId, inputType = 'text', inputName, onChange, inputValue = ''}) {
+import {useState} from 'react'
+
+export default function Input({labelName, inputId, inputType = 'text', inputName, inputValue, onChange}) {
 
   return (
     <div>
@@ -7,5 +9,3 @@ function Input({labelName, inputId, inputType = 'text', inputName, onChange, inp
     </div>
   )
 }
-
-export {Input}
