@@ -5,10 +5,11 @@ import './App.css'
 
 export default function App() {
   const [generalInformation, setGeneralInformation] = useState(initialGeneralInformation);
+
   
   return (
     <>
-      <InformationSection generalInformation={generalInformation} inputTypes={{name: 'text', email: 'email', phoneNumber: 'tel', location: 'text'}}/>
+      <InformationSection generalInformation={generalInformation} updateGeneralInformation={setGeneralInformation} inputTypes={{name: 'text', email: 'email', phoneNumber: 'tel', location: 'text'}}/>
     </>
   )
 }

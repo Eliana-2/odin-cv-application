@@ -18,7 +18,7 @@ function InformationSection({generalInformation, updateGeneralInformation, input
       {Object.keys(inputValues).map((inputKey) => 
       <Input labelName={formatLabel(inputKey)} inputId={inputKey} inputName={inputKey} inputType={inputTypes[inputKey]} inputValue={inputValues[inputKey]} onChange={(e) => updateInputValues(e, inputKey)} key={inputKey}/>
       )}
-      <Button/>
+      <Button onClick={() => updateGeneralInformation({...inputValues})}/>
     </form>
   )
 }
