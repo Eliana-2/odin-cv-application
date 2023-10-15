@@ -2,8 +2,8 @@ import Input from './Input.jsx';
 import Button from './Button.jsx';
 import {useState} from 'react'
 
-function InformationSection({generalInformation, updateGeneralInformation, inputTypes}) {
-  const [inputValues, setInputValues] = useState({...generalInformation});
+function InformationSection({information, updateInformation, inputTypes}) {
+  const [inputValues, setInputValues] = useState({...information});
   
   function updateInputValues(event, valueKey) {
     setInputValues({...inputValues, [valueKey] : event.target.value});
@@ -18,7 +18,7 @@ function InformationSection({generalInformation, updateGeneralInformation, input
       {Object.keys(inputValues).map((inputKey) => 
       <Input labelName={formatLabel(inputKey)} inputId={inputKey} inputName={inputKey} inputType={inputTypes[inputKey]} inputValue={inputValues[inputKey]} onChange={(e) => updateInputValues(e, inputKey)} key={inputKey}/>
       )}
-      <Button onClick={() => updateGeneralInformation({...inputValues})}/>
+      <Button onClick={() => updateInformation({...inputValues})}/>
     </form>
   )
 }

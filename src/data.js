@@ -5,4 +5,11 @@ const initialGeneralInformation = {
   location: 'Someplace, Earth'
 }
 
-export {initialGeneralInformation}
+const initialEducationalInformation = {
+  school: "Universal University",
+  degree: "Bachelor of Science, Wumbology",
+  startDate: "2016-09-21",
+  endDate: "2020-06-12"
+}
+
+export {initialGeneralInformation, initialEducationalInformation}

@@ -1,0 +1,10 @@
+.button {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.panel-button {
+  font-size: 1.5rem;
+}
