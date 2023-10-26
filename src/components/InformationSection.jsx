@@ -1,5 +1,6 @@
 import Input from './Input.jsx';
 import Button from './Button.jsx';
+import Form from './Form.jsx';
 import {useState} from 'react'
 
 function InformationSection({information, updateInformation, inputTypes}) {
@@ -14,12 +15,12 @@ function InformationSection({information, updateInformation, inputTypes}) {
     return separatedString[0].toUpperCase() + separatedString.slice(1);
   }
   return (
-    <form>
+    <Form>
       {Object.keys(inputValues).map((inputKey) => 
       <Input labelName={formatLabel(inputKey)} inputId={inputKey} inputName={inputKey} inputType={inputTypes[inputKey]} inputValue={inputValues[inputKey]} onChange={(e) => updateInputValues(e, inputKey)} key={inputKey}/>
       )}
-      <Button onClick={() => updateInformation({...inputValues})}/>
-    </form>
+      <Button onClick={() => updateInformation({...inputValues})} className="form-button button">Save Changes</Button>
+    </Form>
   )
 }
 

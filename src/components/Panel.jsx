@@ -5,4 +5,4 @@ export default function Panel({children}) {
       {children}
     </div>
   )
-}
+  }

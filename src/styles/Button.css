@@ -1,5 +1,6 @@
 .button {
-  padding: 1rem;
+  font-size: 1rem;
+  padding: 0.5rem;
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -7,4 +8,14 @@
 
 .panel-button {
   font-size: 1.5rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.form-button {
+  align-self: center;
+}
+
+.mode-toggle {
+  margin: 0 auto;
 }
