@@ -1,9 +1,9 @@
-import '../styles/main.css'
+import styles from '../../styles/Main.module.css'
 
 export default function Main({children}) {
   return (
-    <main className="main">
-      <div className="container">
+    <main>
+      <div className={styles["container"]}>
         {children}
       </div>
       </main>

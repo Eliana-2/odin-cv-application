@@ -4,5 +4,6 @@
 }
 
 .panel-toggle {
+  composes: icon;
   margin-left: auto;
 }

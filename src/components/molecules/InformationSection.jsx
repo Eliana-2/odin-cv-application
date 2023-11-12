@@ -1,6 +1,6 @@
-import Input from './Input.jsx';
-import Button from './Button.jsx';
-import Form from './Form.jsx';
+import Input from '../atoms/Input.jsx';
+import Button from '../atoms/Button.jsx';
+import Form from '../atoms/Form.jsx';
 import {useState} from 'react'
 
 function InformationSection({information, updateInformation, inputTypes}) {
@@ -19,7 +19,7 @@ function InformationSection({information, updateInformation, inputTypes}) {
       {Object.keys(inputValues).map((inputKey) => 
       <Input labelName={formatLabel(inputKey)} inputId={inputKey} inputName={inputKey} inputType={inputTypes[inputKey]} inputValue={inputValues[inputKey]} onChange={(e) => updateInputValues(e, inputKey)} key={inputKey}/>
       )}
-      <Button onClick={() => updateInformation({...inputValues})} className="form-button button">Save Changes</Button>
+      <Button onClick={() => updateInformation({...inputValues})}>Save Changes</Button>
     </Form>
   )
 }
