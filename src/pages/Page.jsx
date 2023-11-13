@@ -5,6 +5,7 @@ import { initialGeneralInformation, initialEducationalInformation } from '../dat
 import {InformationSection} from '../components/molecules/InformationSection.jsx';
 import Button from '../components/atoms/Button.jsx';
 import CVPanel from '../components/molecules/CVPanel.jsx';
+import { PanelContent } from '../components/molecules/PanelContent.jsx';
 import '../styles/Page.css'
 
 export default function Page() {
@@ -29,15 +30,12 @@ export default function Page() {
           <InformationSection information={generalInformation} updateInformation={setGeneralInformation} inputTypes={{name: 'text', email: 'email', phoneNumber: 'tel', location: 'text'}}></InformationSection>
         </CVPanel>
         <CVPanel onClick={() => switchIndex(1)} isActivePanel={activeIndex === 1} iconSrc="./icons/school.svg" name="Education">
-          {educationalInformation.map((educationItem) => 
-          <Button className="section-button" key={educationItem.degree}>{educationItem.degree}</Button>
-          )}
-          <Button onClick={() => setEducationalInformation([...educationalInformation, {school: "", degree: "", startDate: "", endDate: ""}])}>Add Degree</Button>
+          <PanelContent information={educationalInformation} updateInformation={setEducationalInformation} inputTypes={{school: "text", degree: "text", startDate: "date", endDate: "date"}}></PanelContent>
         </CVPanel>
         <CVPanel onClick={() => switchIndex(2)} isActivePanel={activeIndex === 2} iconSrc="./icons/briefcase.svg" name="Work Experience">
 
         </CVPanel>
-        <Button onClick={() => setContentMode('View')}>View CV</Button>
+        {(activeIndex === -1) && <Button onClick={() => setContentMode('View')}>View CV</Button>}
         </>
         : null}
       </Main>
