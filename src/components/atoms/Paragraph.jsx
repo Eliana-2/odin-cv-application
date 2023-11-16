@@ -1,5 +1,7 @@
-export default function Paragraph({children}) {
+import styles from '../../styles/Paragraph.module.css'
+
+export default function Paragraph({className, children}) {
   return (
-    <p>{children}</p>
+    <p className={styles[className]}>{children}</p>
   )
 }

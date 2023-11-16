@@ -39,7 +39,8 @@ export default function Page() {
           <PanelContent information={employmentInformation} updateInformation={setEmploymentInformation} inputTypes={{company: "text", position: "text", description: "textarea", startDate: "date", endDate: "date"}}></PanelContent>
         </CVPanel>
         {(activeIndex === -1) && <Button onClick={() => setContentMode('View')}>View CV</Button>}
-        </> : 
+        </> : <>
+        <Button onClick={() => setContentMode('Edit')}>Edit CV</Button>
         <Container className="cv">
           <Container className="cv-top">
             <Heading type="h2" title={generalInformation.name}></Heading>
@@ -57,7 +58,7 @@ export default function Page() {
                 <Paragraph>{`${formatDate(educationalItem.startDate)} - ${formatDate(educationalItem.endDate)}`}</Paragraph>
                 <Container className="cv-item-content">
                   <Heading type="h3" title={educationalItem.degree}></Heading>
-                  <Paragraph>{educationalItem.school}</Paragraph>
+                  <Paragraph className="italic">{educationalItem.school}</Paragraph>
                 </Container>
               </Container>)}
             </Container>
@@ -68,13 +69,14 @@ export default function Page() {
                 <Paragraph>{`${formatDate(employmentItem.startDate)} - ${formatDate(employmentItem.endDate)}`}</Paragraph>
                 <Container className="cv-item-content">
                   <Heading type="h3" title={employmentItem.company}></Heading>
-                  <Paragraph>{employmentItem.position}</Paragraph>
+                  <Paragraph className="italic">{employmentItem.position}</Paragraph>
                   <Paragraph>{employmentItem.description}</Paragraph>
                 </Container>
               </Container>)}
             </Container>
           </Container>
-        </Container>}
+        </Container>
+        </>}
       </Main>
     </>
   )
