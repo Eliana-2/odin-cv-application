@@ -1,5 +1,7 @@
 import Header from '../components/atoms/Header.jsx'
 import Main from '../components/atoms/Main.jsx'
+import Container from '../components/atoms/Container.jsx'
+import Heading from '../components/atoms/Heading.jsx'
 import {useState} from 'react'
 import {initialGeneralInformation, initialEducationalInformation, initialEmploymentInformation} from '../data.js';
 import {InformationSection} from '../components/molecules/InformationSection.jsx';
@@ -7,6 +9,7 @@ import Button from '../components/atoms/Button.jsx';
 import CVPanel from '../components/molecules/CVPanel.jsx';
 import {PanelContent} from '../components/molecules/PanelContent.jsx';
 import '../styles/Page.css'
+import Paragraph from '../components/atoms/Paragraph.jsx'
 
 export default function Page() {
   const [contentMode, setContentMode] = useState('Edit');
@@ -36,9 +39,47 @@ export default function Page() {
           <PanelContent information={employmentInformation} updateInformation={setEmploymentInformation} inputTypes={{company: "text", position: "text", description: "textarea", startDate: "date", endDate: "date"}}></PanelContent>
         </CVPanel>
         {(activeIndex === -1) && <Button onClick={() => setContentMode('View')}>View CV</Button>}
-        </>
-        : null}
+        </> : 
+        <Container className="cv">
+          <Container className="cv-top">
+            <Heading type="h2" title={generalInformation.name}></Heading>
+            <address>
+              {generalInformation.phoneNumber} <br />
+              {generalInformation.email} <br />
+              {generalInformation.location}
+            </address>
+          </Container>
+          <Container className="cv-middle">
+            <Heading type="h2" title="Education"></Heading>
+            <Container className="cv-items">
+              {educationalInformation.map(educationalItem => 
+              <Container className="cv-item">
+                <Paragraph>{`${formatDate(educationalItem.startDate)} - ${formatDate(educationalItem.endDate)}`}</Paragraph>
+                <Container className="cv-item-content">
+                  <Heading type="h3" title={educationalItem.degree}></Heading>
+                  <Paragraph>{educationalItem.school}</Paragraph>
+                </Container>
+              </Container>)}
+            </Container>
+            <Heading type="h2" title="Experience"></Heading>
+            <Container className="cv-items">
+              {employmentInformation.map(employmentItem => 
+              <Container className="cv-item">
+                <Paragraph>{`${formatDate(employmentItem.startDate)} - ${formatDate(employmentItem.endDate)}`}</Paragraph>
+                <Container className="cv-item-content">
+                  <Heading type="h3" title={employmentItem.company}></Heading>
+                  <Paragraph>{employmentItem.position}</Paragraph>
+                  <Paragraph>{employmentItem.description}</Paragraph>
+                </Container>
+              </Container>)}
+            </Container>
+          </Container>
+        </Container>}
       </Main>
     </>
   )
+}
+
+function formatDate(dateString) {
+  return new Date(dateString).toLocaleDateString();
 }

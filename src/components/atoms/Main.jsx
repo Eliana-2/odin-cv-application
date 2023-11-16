@@ -6,6 +6,6 @@ export default function Main({children}) {
       <div className={styles["container"]}>
         {children}
       </div>
-      </main>
+    </main>
   )
 }

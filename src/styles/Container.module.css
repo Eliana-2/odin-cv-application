@@ -16,3 +16,41 @@
   justify-content: center;
   gap: 1rem;
 }
+
+.cv {
+  composes: panel;
+  border: 1px solid black;
+}
+
+.cv-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color:aliceblue;
+}
+
+.cv-middle {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.cv-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cv-item {
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+}
+
+.cv-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
