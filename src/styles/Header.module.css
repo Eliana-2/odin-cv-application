@@ -1,5 +1,7 @@
 .header {
   min-width: 650px;
+  background-color: rgb(15, 38, 71);
+  color: white;
   padding: 2rem;
   text-align: center;
   box-shadow: 0rem 0.125rem 0.125rem grey;

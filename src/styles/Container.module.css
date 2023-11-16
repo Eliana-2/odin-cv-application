@@ -18,6 +18,7 @@
 }
 
 .cv {
+  margin-top: 0.5rem;
   min-height: 800px;
   composes: panel;
   border: 1px solid black;
